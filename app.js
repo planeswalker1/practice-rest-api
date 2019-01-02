@@ -17,7 +17,8 @@ if (dev) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// call this function to create new ids
+let idCounter = 0;
+// call this function to 'create' new ids
 function generateId() {
   return ++idCounter;
 }
