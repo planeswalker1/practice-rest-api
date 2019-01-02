@@ -1,0 +1,17 @@
+{
+  "name": "practice-rest-api",
+  "version": "1.0.0",
+  "author": "Daniel Munoz <daniel.munozdev@gmail.com>",
+  "private": true,
+  "description": "An api that returns users, following rest.",
+  "main": "app.js",
+  "scripts": {
+    "build": "npm install",
+    "dev": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1"
+  }
+}
