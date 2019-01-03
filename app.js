@@ -17,7 +17,6 @@ if (dev) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
 let idCounter = 0;
 // call this function to 'create' new ids
 function generateId() {
@@ -33,7 +32,12 @@ let userDb = [
       password: 'qwerty'
   }
 ];
+
+
+// =================================================
 // methods to create, read, update and delete users
+// =================================================
+
 
 // get a specific user
 userDb.getUserById = function (id, callback) {
@@ -180,6 +184,14 @@ userDb.deleteUser = function (id, callback) {
 // feel free to use any built-in functions (including ES6 functions)
 // don't use any external libraries (no more require() statements)
 
+// Exra:
+//  start adding data validation. don't insert values other
+// than name/email/pw, reject creations if they don't have an email and pw, etc.
+
+// ===========================
+//        ROUTES
+// ===========================
+
 // create a user
 app.post('/users', function (req, res, next) {
   let newUser = {
@@ -199,12 +211,6 @@ app.post('/users', function (req, res, next) {
     }
   });
 });
-
-
-
-// ===========================
-//        ROUTES
-// ===========================
 
 // get all users
 app.get('/users', function (req, res) {
@@ -249,8 +255,9 @@ app.delete('/users/:id', function (req, res, next) {
   })
 });
 
-// Exra: start adding data validation. don't insert values other
-// than name/email/pw, reject creations if they don't have an email and pw, etc.
+// ==============
+// error handlers
+// ==============
 
 // handle error
 app.use(function(err, req, res, next) {
@@ -275,6 +282,10 @@ if (dev) {
 app.use(function(err, req, res, next) {
   res.status(err.status || 500).send();
 });
+
+// ============
+// local server
+// ============
 
 let server = app.listen(3000, function () {
   console.log('Listening at http://localhost:%s in %s mode', server.address().port, app.get('env'));

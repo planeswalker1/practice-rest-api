@@ -36,7 +36,7 @@ Do not use:
 
 **Output Format**
 
-respond with a user; otherwise, respond with an error message. otherwise, respond with an error message.
+respond with a user; otherwise, respond with an error message.
 
 **Sample Url**
 
